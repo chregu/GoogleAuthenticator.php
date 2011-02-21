@@ -1,0 +1,10 @@
+Ported from http://code.google.com/p/google-authenticator/
+
+You can use the Google Authenticator app from here
+http://www.google.com/support/accounts/bin/answer.py?hl=en&answer=1066447
+to generate One Time Passwords/Tokens and check them with this little
+PHP app (Of course, you can also create them with this).
+
+There are many real world applications for that, but noone implemented it yet.
+
+See example.php for how to use it.
