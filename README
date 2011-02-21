@@ -8,3 +8,7 @@ PHP app (Of course, you can also create them with this).
 There are many real world applications for that, but noone implemented it yet.
 
 See example.php for how to use it.
+
+There's a little web app showing how it works in web/, please make users.dat 
+writeable for the webserver, doesn't really work otherwise (it can't save the
+secret). Try to login with chregu/foobar.
