@@ -1,5 +1,5 @@
 <?php
-include_once("GoogleAuthenticator.php");
+include_once("lib/GoogleAuthenticator.php");
 
 $secret = 'XVQ2UIGO75XRUKJO';
 $time = floor(time() / 30);
