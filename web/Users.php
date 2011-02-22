@@ -59,6 +59,7 @@ class User {
     function doLogin() {
         session_regenerate_id();
         $_SESSION['loggedin'] = true;
+        $_SESSION['ua'] = $_SERVER['HTTP_USER_AGENT'];
     }
     
     function doOTP() {
@@ -74,7 +75,9 @@ class User {
         
     }
     function isLoggedIn() {
-        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true &&
+            isset($_SESSION['ua']) && $_SESSION['ua'] == $_SERVER['HTTP_USER_AGENT']
+        ) {
             
             return $_SESSION['username'];
         }
