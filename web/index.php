@@ -3,13 +3,10 @@ ob_start(); //i'm too lazy to check when is sent what ;)
 //set session cookie to be read only via http and not by JavaScript
 ini_set("session.cookie_httponly", 1);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta name="generator" content=
-"HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.3.6), see www.w3.org" />
-<title></title>
+<title>Google Authenticator in PHP demo</title>
 </head>
 <body>
 <?php
