@@ -42,6 +42,7 @@ if ($username = $users->hasSession()) {
         
     } else {
         session_destroy();
+        include("../tmpl/login.php");
     }
     
     
