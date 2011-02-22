@@ -31,7 +31,9 @@ if ($username = $users->hasSession()) {
         $g = new GoogleAuthenticator();
         if ($g->checkCode($user->getSecret(),$_POST['otp'])) {
              $user->doLogin();
-             $user->setOTPCookie();
+             if (isset($_POST['remember']) && $_POST['remember']) {
+                 $user->setOTPCookie();
+             }
              include("../tmpl/loggedin.php");   
         } else {
             session_destroy();
