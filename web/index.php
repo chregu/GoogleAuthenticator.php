@@ -12,7 +12,7 @@ ini_set("session.cookie_httponly", 1);
 include_once("../lib/GoogleAuthenticator.php");
 include_once("Users.php");
 
-
+$debug = true;
 
 $users = new Users();
 if ($username = $users->hasSession()) {
