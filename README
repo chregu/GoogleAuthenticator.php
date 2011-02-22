@@ -12,3 +12,11 @@ See example.php for how to use it.
 There's a little web app showing how it works in web/, please make users.dat 
 writeable for the webserver, doesn't really work otherwise (it can't save the
 secret). Try to login with chregu/foobar.
+
+
+What's missing in the demo:
+***
+
+* Prevent replay attacks. One token should only be used once 
+* Show QR Code only when providing password again (or not at all)
+* Regenrate secret
