@@ -14,7 +14,7 @@ writeable for the webserver, doesn't really work otherwise (it can't save the
 secret). Try to login with chregu/foobar.
 
 
-What's missing in the demo:
+What's missing in the example:
 ***
 
 * Prevent replay attacks. One token should only be used once 
