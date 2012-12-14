@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/plain');
 include_once("lib/GoogleAuthenticator.php");
 
 $secret = 'XVQ2UIGO75XRUKJO';
