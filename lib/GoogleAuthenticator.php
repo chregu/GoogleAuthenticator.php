@@ -53,7 +53,7 @@ class GoogleAuthenticator {
         $offset = $offset & 0xF;
         
         $truncatedHash = self::hashToInt($hash, $offset) & 0x7FFFFFFF;
-        $pinValue = str_pad($truncatedHash % self::$PIN_MODULO,6,"0",STR_PAD_LEFT);;
+        $pinValue = str_pad($truncatedHash % self::$PIN_MODULO,6,"0",STR_PAD_LEFT);
         return $pinValue;
     }
     
