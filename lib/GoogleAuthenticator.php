@@ -29,20 +29,17 @@ class GoogleAuthenticator {
                 return true;
             }
         }
-        
         return false;
-        
     }
     
     public function getCode($secret,$time = null) {
-        
         if (!$time) {
             $time = floor(time() / 30);
         }
         $base32 = new FixedBitNotation(5, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567', TRUE, TRUE);
         $secret = $base32->decode($secret);
         
-        $time = pack("N", $time);
+        $time = pack('N', $time);
         $time = str_pad($time,8, chr(0), STR_PAD_LEFT);
         
         $hash = hash_hmac('sha1',$time,$secret,true);
@@ -56,31 +53,25 @@ class GoogleAuthenticator {
     
     protected  function hashToInt($bytes, $start) {
         $input = substr($bytes, $start, strlen($bytes) - $start);
-        $val2 = unpack("N",substr($input,0,4));
+        $val2 = unpack('N',substr($input,0,4));
         return $val2[1];
     }
     
     public function getUrl($user, $hostname, $secret) {
-        $url =  sprintf("otpauth://totp/%s@%s?secret=%s", $user, $hostname, $secret);
         $encoder = "https://www.google.com/chart?chs=200x200&chld=M|0&cht=qr&chl=";
         $encoderURL = sprintf( "%sotpauth://totp/%s@%s&secret=%s",$encoder, $user, $hostname, $secret);
-        
         return $encoderURL;
-        
     }
     
     public function generateSecret() {
-        $secret = "";
-        for($i = 1;  $i<= self::$SECRET_LENGTH;$i++) {
+        $secret = null;
+        for($i = 1;$i<= self::$SECRET_LENGTH;$i++) {
             $c = rand(0,255);
             $secret .= pack("c",$c);
         }
         $base32 = new FixedBitNotation(5, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567', TRUE, TRUE);
         return  $base32->encode($secret);
-        
-        
     }
-    
 }
 
 
@@ -125,8 +116,7 @@ class FixedBitNotation
     {
         // Ensure validity of $chars
         if (!is_string($chars) || ($charLength = strlen($chars)) < 2) {
-            $chars = 
-            '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-,';
+            $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-,';
             $charLength = 64;
         }
         
@@ -177,7 +167,7 @@ class FixedBitNotation
         $bytes = unpack('C*', $rawString);
         $byteCount = count($bytes);
         
-        $encodedString = '';
+        $encodedString = null;
         $byte = array_shift($bytes);
         $bitsRead = 0;
         
@@ -259,7 +249,7 @@ class FixedBitNotation
     {
         if (!$encodedString || !is_string($encodedString)) {
             // Empty string, nothing to decode
-            return '';
+            return null;
         }
         
         $chars = $this->_chars;
@@ -292,7 +282,7 @@ class FixedBitNotation
             $lastNotatedIndex--;
         }
         
-        $rawString = '';
+        $rawString = null;
         $byte = 0;
         $bitsWritten = 0;
         
