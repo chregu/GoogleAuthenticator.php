@@ -11,6 +11,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+include_once("FixedByteNotation.php");
 
 class GoogleAuthenticator {
     static $PASS_CODE_LENGTH = 6;
