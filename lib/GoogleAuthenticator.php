@@ -57,7 +57,7 @@ class GoogleAuthenticator {
         return $pinValue;
     }
     
-    protected  function hashToInt($bytes, $start) {
+    static protected function hashToInt($bytes, $start) {
         $input = substr($bytes, $start, strlen($bytes) - $start);
         $val2 = unpack("N",substr($input,0,4));
         return $val2[1];
